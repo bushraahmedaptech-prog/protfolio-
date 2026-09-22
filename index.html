@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bushra Ahmed - Portfolio</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- html2pdf Library (Automatic PDF Generator) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <style>
+    :root {
+      --primary-color: #0d6efd;
+      --dark-bg: #eaf0f5;
+      --light-bg: #1b63ab;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* Fixed Header / Navbar */
+    .navbar {
+      background-color: var(--dark-bg);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .navbar-brand, .nav-link {
+      color: #fff ;
+    }
+    .nav-link:hover {
+      color: var(--primary-color) ;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(26, 37, 47, 0.9), rgba(26, 37, 47, 0.9)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1350&q=80') center/cover;
+      color: white;
+      padding: 100px 0 80px 0;
+      margin-top: 56px;
+    }
+
+    /* Sections Padding & Headers */
+    section {
+      padding: 70px 0;
+    }
+    .section-title {
+      position: relative;
+      margin-bottom: 40px;
+      font-weight: 700;
+      color: var(--dark-bg);
+    }
+    .section-title::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary-color);
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+    }
+
+    /* Project Cards */
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .project-img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* Skill Badges */
+    .skill-badge {
+      font-size: 0.9rem;
+      padding: 8px 15px;
+      margin: 4px;
+      display: inline-block;
+      background-color: #e9ecef;
+      color: #333;
+      border-radius: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-bg);
+      color: white;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body id="cv-content">
+
+  <!-- FIXED HEADER WITH DOWNLOAD CV BUTTON -->
+  <nav class="navbar navbar-expand-lg fixed-top" data-html2pdf-ignore="true">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#about">BUSHRA AHMED</a>
+      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#about"><i class="fa-solid fa-user me-1"></i> About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills"><i class="fa-solid fa-code me-1"></i> Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects"><i class="fa-solid fa-laptop-code me-1"></i> Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience"><i class="fa-solid fa-briefcase me-1"></i> Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education"><i class="fa-solid fa-graduation-cap me-1"></i> Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact"><i class="fa-solid fa-envelope me-1"></i> Contact</a></li>
+          
+          <!-- FIXED DOWNLOAD CV BUTTON -->
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <button onclick="downloadPDF()" class="btn btn-warning btn-sm fw-bold">
+              <i class="fa-solid fa-download me-1"></i> Download CV
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / ABOUT SECTION -->
+  <section id="about" class="hero">
+    <div class="container text-center text-md-start">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <h1 class="display-4 fw-bold mb-2">Bushra Ahmed</h1>
+          <h4 class="text-primary mb-3">Frontend Web Developer | Marketing & Survey Exec | Pre-Primary Teacher | Receptionist</h4>
+          <p class="lead text-light">
+            Multi-talented and energetic professional with practical experience in frontend web development, field marketing & survey auditing, educational instruction, and administrative front-desk management. Strong track record in executing marketing surveys, conducting audit checks, teaching young learners, and managing client interactions. Proficient in web technologies (HTML, CSS, JS, PHP, MySQL) with strong organizational and communication abilities.
+          </p>
+          <div class="mt-4" data-html2pdf-ignore="true">
+            <button onclick="downloadPDF()" class="btn btn-warning btn-lg me-2"><i class="fa-solid fa-file-arrow-down"></i> Download CV</button>
+            <a href="#contact" class="btn btn-outline-light btn-lg"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Technical & Professional Skills</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card p-4 border-0 shadow-sm">
+            <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-code me-2"></i>Web Development</h5>
+            <div>
+              <span class="skill-badge">HTML5</span>
+              <span class="skill-badge">CSS3</span>
+              <span class="skill-badge">JavaScript</span>
+              <span class="skill-badge">Bootstrap</span>
+              <span class="skill-badge">PHP</span>
+              <span class="skill-badge">MySQL</span>
+              <span class="skill-badge">Responsive Design</span>
+              <span class="skill-badge">Git & GitHub</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card p-4 border-0 shadow-sm">
+            <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-list-check me-2"></i>Marketing, Admin & Teaching</h5>
+            <div>
+              <span class="skill-badge">Field Marketing & Survey</span>
+              <span class="skill-badge">Ad & Sticker Auditing</span>
+              <span class="skill-badge">Urdu Instruction</span>
+              <span class="skill-badge">Art & Craft Projects</span>
+              <span class="skill-badge">Front Desk Operations</span>
+              <span class="skill-badge">MS Office (Word, Excel)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="row g-4">
+        
+        <!-- Project 1: SwiftMart -->
+        <div class="col-md-6">
+          <div class="card project-card h-100">
+            <img src="https://via.placeholder.com/600x300?text=SwiftMart+E-Commerce" class="card-img-top project-img" alt="SwiftMart Website">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">SwiftMart – Premium Shopping Website</h5>
+              <p class="card-text text-muted">Built a fully responsive e-commerce web application with interactive UI components. Configured PHP and MySQL for dynamic database operations and user data management.</p>
+              <div class="mb-3">
+                <span class="badge bg-primary">HTML</span>
+                <span class="badge bg-primary">CSS</span>
+                <span class="badge bg-primary">JavaScript</span>
+                <span class="badge bg-primary">PHP</span>
+                <span class="badge bg-primary">MySQL</span>
+                <span class="badge bg-primary">Bootstrap</span>
+              </div>
+              <a href="http://bushra-swiftmart.infinityfreeapp.com" target="_blank" class="btn btn-outline-primary btn-sm" data-html2pdf-ignore="true"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Personal Portfolio -->
+        <div class="col-md-6">
+          <div class="card project-card h-100">
+            <img src="https://via.placeholder.com/600x300?text=Personal+Portfolio+Website" class="card-img-top project-img" alt="Personal Portfolio">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Personal Portfolio Website</h5>
+              <p class="card-text text-muted">Designed and deployed a responsive developer portfolio to highlight personal projects, skills, and contact details.</p>
+              <div class="mb-3">
+                <span class="badge bg-secondary">HTML</span>
+                <span class="badge bg-secondary">CSS</span>
+                <span class="badge bg-secondary">JavaScript</span>
+                <span class="badge bg-secondary">Bootstrap</span>
+              </div>
+              <a href="https://bushraahmedaptech-prog.github.io/my-portfolio/" target="_blank" class="btn btn-outline-dark btn-sm" data-html2pdf-ignore="true"><i class="fa-brands fa-github"></i> GitHub Site</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE SECTION -->
+  <section id="experience" class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="row g-4">
+        
+        <div class="col-md-12">
+          <div class="card border-0 shadow-sm p-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="fw-bold mb-1">Marketing & Survey Executive / Field Auditor</h5>
+              <span class="badge bg-primary">2026 - 2026</span>
+            </div>
+            <p class="text-muted small mb-2">Dispenser Ad Campaign | Karachi, Pakistan</p>
+            <ul>
+              <li>Executed field survey and marketing activities for the 19-Litre water bottle/dispenser advertising campaign.</li>
+              <li>Conducted on-site audits and physical checks for advertisement stickers and campaign materials across assigned locations.</li>
+              <li>Collected accurate field data, recorded client feedback, and verified advertisement placements.</li>
+              <li>Managed records and reports of completed survey points to ensure quality assurance for the marketing campaign.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="card border-0 shadow-sm p-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="fw-bold mb-1">Pre-Primary Teacher</h5>
+              <span class="badge bg-secondary">2013 - 2015</span>
+            </div>
+            <p class="text-muted small mb-2">The Educator / Umm Al-Quraa | Karachi, Pakistan</p>
+            <ul>
+              <li>Taught Urdu to pre-primary students using age-appropriate visual activities and interactive exercises.</li>
+              <li>Planned and conducted Art and Craft sessions to foster creativity, drawing, and fine motor skills.</li>
+              <li>Guided students through creative art project work and hands-on learning assignments.</li>
+              <li>Maintained a safe, structured, and engaging classroom environment while communicating with parents.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="card border-0 shadow-sm p-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="fw-bold mb-1">Receptionist / Front Desk Officer</h5>
+              <span class="badge bg-info text-dark">2010 - 2011</span>
+            </div>
+            <p class="text-muted small mb-2">Ghazi Foundation School | Karachi, Pakistan</p>
+            <ul>
+              <li>Managed front-desk operations, greeting and guiding parents, visitors, and school staff professionally.</li>
+              <li>Handled incoming telephone inquiries, call routing, and routine administrative documentation.</li>
+              <li>Maintained accurate records, daily logs, and visitor information using MS Word and MS Excel.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION SECTION -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card p-3 border-0 shadow-sm">
+            <h5 class="fw-bold text-primary">Diploma in Software Engineering</h5>
+            <p class="mb-1">Aptech Computer Education</p>
+            <small class="text-muted">2025 – Present</small>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card p-3 border-0 shadow-sm">
+            <h5 class="fw-bold text-primary">Frontend Development Certificate</h5>
+            <p class="mb-1">Aptech Computer Education</p>
+            <small class="text-muted">2025 – 2026</small>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card p-3 border-0 shadow-sm">
+            <h5 class="fw-bold text-primary">Intermediate (HSC)</h5>
+            <p class="mb-1">Govt. Degree Girls' College</p>
+            <small class="text-muted">2012</small>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card p-3 border-0 shadow-sm">
+            <h5 class="fw-bold text-primary">Matriculation (SSC)</h5>
+            <p class="mb-1">Ghazi Foundation School</p>
+            <small class="text-muted">2010</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="row g-4">
+        <div class="col-md-5">
+          <div class="card p-4 border-0 shadow-sm h-100">
+            <h5 class="fw-bold mb-3">Get In Touch</h5>
+            <p><i class="fa-solid fa-location-dot text-primary me-2"></i> Sector 8 North Karachi, Pakistan</p>
+            <p><i class="fa-solid fa-envelope text-primary me-2"></i> bushraahmedaptech@gmail.com</p>
+            <p><i class="fa-brands fa-whatsapp text-success me-2"></i> 0332 3352614</p>
+            <p><i class="fa-solid fa-globe text-primary me-2"></i> <a href="http://bushra-swiftmart.infinityfreeapp.com" target="_blank">SwiftMart Website</a></p>
+          </div>
+        </div>
+        <div class="col-md-7" data-html2pdf-ignore="true">
+          <div class="card p-4 border-0 shadow-sm">
+            <form id="whatsappForm">
+              <div class="mb-3">
+                <label class="form-label">Your Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Your Email / Phone</label>
+                <input type="text" id="email" class="form-control" placeholder="Enter your email or phone" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea id="message" class="form-control" rows="4" placeholder="Your message..." required></textarea>
+              </div>
+              <button type="button" onclick="sendToWhatsApp()" class="btn btn-success"><i class="fa-brands fa-whatsapp me-2"></i> Send via WhatsApp</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center" data-html2pdf-ignore="true">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 Bushra Ahmed. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- WHATSAPP & AUTO-PDF SCRIPT -->
+  <script>
+    function sendToWhatsApp() {
+      var phoneNumber = "923323352614"; 
+
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var message = document.getElementById("message").value;
+
+      if(name === "" || email === "" || message === "") {
+        alert("Khabardari: Barah-e-karam saari details pur karein!");
+        return;
+      }
+
+      var textMessage = "Hello Bushra,%0A%0AApki portfolio website se message aaya hai:%0A%0A*Name:* " + encodeURIComponent(name) + "%0A*Contact:* " + encodeURIComponent(email) + "%0A*Message:* " + encodeURIComponent(message);
+
+      var whatsappUrl = "https://wa.me/" + phoneNumber + "?text=" + textMessage;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // AUTOMATIC PDF DOWNLOAD FUNCTION
+    function downloadPDF() {
+      var element = document.body;
+      var opt = {
+        margin:       0.2,
+        filename:     'Bushra_Ahmed_CV.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+
+      html2pdf().set(opt).from(element).save();
+    }
+  </script>
+</body>
+</html>
